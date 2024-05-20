@@ -1,0 +1,221 @@
+* {
+    font-family: 'Space Grotesk', sans-serif;
+}
+/* ^ ========== PARTICLES BACKGROUND ========== */
+.back{
+    position: fixed;
+    z-index: -10;
+    background-color: #1B1B1B;
+    height: 100%;
+    width: 100%;
+}
+/* ^ ========== BET MAIN ========== */
+.secondparent {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: .2fr 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    background-color: #1b1b1b00;
+}
+
+.bet {
+    grid-area: 1 / 1 / 2 / 6;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    color: beige;
+}
+
+.bet .info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.bet .info h1{
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+.bet .info h3{
+    margin: 0;
+}
+.logout{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.logout a{
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.5rem;
+    background-color: beige;
+    color: #333;
+    transition: .5s;
+    border: none;
+    border-radius: 15px;
+    padding: 0.5rem 1rem;
+    margin: 1rem
+}
+
+.logout a:hover{
+    scale: 120%;
+    background-color: #333;
+    color: beige;
+    transition: .5s;
+}
+
+.div2 {
+    grid-area: 2 / 1 / 3 / 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.MainCont{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.SelCont{
+    scale: 130%;
+}
+
+.selectors {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    font-family: 'Space Grotesk', sans-serif;
+    color: beige;
+}
+
+.selectors p{
+margin-bottom: .2rem;
+}
+
+.selectors .num{
+    height: 100%;
+    width: 20px;
+    margin-right: .5rem;
+    text-align: center;
+}
+
+.selector-container .selector{
+margin-bottom: .2rem;
+display: flex;
+align-items: center;
+}
+
+.selector-container .selector img{
+aspect-ratio: auto;
+height: 30px;
+margin-left: 5px;
+}
+
+.selector-container .selector select {
+font-family: 'Space Grotesk', sans-serif;
+font-size: 1rem;
+width: auto;
+cursor: pointer;
+padding: 7px 14px;
+outline: 0;
+border: 0px;
+border-radius: 0px;
+background: #343434;
+color: beige;
+appearance: none;
+-webkit-appearance: none;
+-moz-appearance: none;
+text-align: center;
+}
+
+.selector-container .selector select:focus, .selector-container .selector select:hover{
+color: #333;
+background: beige;
+}
+
+.selectors button{
+font-family: 'Space Grotesk', sans-serif;
+font-size: 1rem;
+background-color: beige;
+color: #333;
+transition: .5s;
+border: none;
+border-radius: 15px;
+padding: 2px 10px;
+margin: 5px 0 0 auto;
+}
+
+.selectors button:hover{
+scale: 120%;
+background-color: #333;
+color: beige;
+transition: .5s;
+}
+
+.TableContainer{
+    max-height: 650px;
+}
+
+.table{
+    display: flex;
+}
+
+.Title{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.Title .GPName{
+    font-size: 2.5rem;
+    margin: 0px;
+    text-align: center;
+}
+.Title .TimeCont{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.Title #TimeText{
+    font-size: 1.5rem;
+    margin: 0;
+    color: rgb(177, 177, 157);
+}
+.Title #Time{
+    font-size: 2.5rem;
+    margin: 0;
+    width: 350px;
+    text-align: center;
+}
+
+/* $ ========== MOBILE ONLY ========== */
+@media only screen and (max-width: 767px) {
+    .Title{
+        margin-top: 10px;
+        border-top: dashed #3f3f3fb0;
+        border-radius: 20px;
+    }
+    .MainCont{
+        margin-top: 10px;
+        border-top: dashed #3f3f3fb0;
+        border-radius: 20px;
+    }
+    .SelCont{
+        margin-top: 10px;
+        scale: 100%;
+    }
+    .Table{
+        margin-top: 10px;
+    }
+}

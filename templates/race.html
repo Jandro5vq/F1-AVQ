@@ -1,0 +1,136 @@
+{% extends "layout.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="/static//css/race.css">
+<link href="/static//css/tabulator.css" rel="stylesheet">
+<title>F1 AVQ - Race</title>
+{% endblock %}
+
+{% block content %}
+<div class="partback" id="particles-js"></div>
+<div class="race">
+    <div class="Title">
+        <img src="" class="Flag-img" id="Left-img">
+        <p id="Title"></p>
+        <img src="" class="Circuit-img" id="Right-img">
+    </div>
+    <main class="datos">
+        <div class="Result-Table">
+            <div class="Result-Selector">
+                <p>Select Table to Show: </p>
+                <div class="selector">
+                    <select class="selector" id="Result-id" onchange="TableUpdate()">
+                        <option value="lastgp" selected>Last GP</option>
+                        <option value="ds">Driver Standings</option>
+                        <option value="cs">Constructor Standings</option>
+                        {% for item in EndedGP %}
+                            <option value="{{item['ID']}}">{{item['Name']}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="Table-Container">
+                <div id="results-table"></div>
+            </div>
+        </div>
+        <div class="Podio-Chart">
+            <div class="podio">
+                <div class="p2" id="p2">
+                    <div class="back"></div>
+                    <img src="" id="p2img">
+                    <div class="front"></div>
+                    <p>2</p>
+                </div>
+                <div class="p1" id="p1">
+                    <div class="back"></div>
+                    <img src="" id="p1img">
+                    <div class="front"></div>
+                    <p>1</p>
+                </div>
+                <div class="p3" id="p3">
+                    <div class="back"></div>
+                    <img src="" id="p3img">
+                    <div class="front"></div>
+                    <p>3</p>
+                </div>
+            </div>
+            <div class="chart">
+                <canvas id="Chart"></canvas>
+            </div>
+        </div>
+    </main>
+</div>
+<script>
+    GDrivRes = JSON.parse({{ GDrivRes | tojson }});
+    GConRes = JSON.parse({{ GConRes | tojson }});
+    EndedGP = ({{ EndedGP | tojson }});
+    ResPerGP = ({{ ResPerGP | tojson }});
+    TeamResPerGP = ({{ TeamResPerGP | tojson }});
+
+    // const SCRIPT_ROOT = 'http://txnserver.giize.com:5000';
+    const SCRIPT_ROOT = '';
+
+    <!-- ^ ========= RESULTADOS GP ========= -->
+    async function getGPRes(GPNum) {
+        try {
+            const response = await fetch(`${SCRIPT_ROOT}/getgpres/${GPNum}`, {
+                method: 'GET',
+                credentials: 'same-origin'
+            });
+            const dt = await response.json();
+            return dt;
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
+    <!-- ^ ========= DATOS DE EL GP ========= -->
+    async function getGPDat(GPNum) {
+        try {
+            const response = await fetch(`${SCRIPT_ROOT}/getgpdat/${GPNum}`, {
+                method: 'GET',
+                credentials: 'same-origin'
+            });
+            const dt = await response.json();
+            return dt;
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
+    <!-- ^ ========= LISTA DE PILOTOS ========= -->
+    async function getDList() {
+        try {
+            const response = await fetch(`${SCRIPT_ROOT}/getdlist`, {
+                method: 'GET',
+                credentials: 'same-origin'
+            });
+            const dt = await response.json();
+            return dt;
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    <!-- ^ ========= VUELTA MAS RAPIDA DE CADA PILOTO ========= -->
+    async function getGPFL(GPNum) {
+        try {
+            const response = await fetch(`${SCRIPT_ROOT}/fastlaps/${GPNum}`, {
+                method: 'GET',
+                credentials: 'same-origin'
+            });
+            const dt = await response.json();
+            return dt;
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+</script>
+<script src="/static//js/particles.js"></script>
+<script src="/static//js/defParticles.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script type="text/javascript" src="/static//js/tabulator.min.js"></script>
+<script src="/static//js/race.js"></script>
+{% endblock %}
+

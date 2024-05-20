@@ -1,0 +1,91 @@
+{% extends "layout.html" %}
+
+{% block head %}
+
+<link rel="stylesheet" href="/static//css/bet.css">
+<link href="/static//css/tabulator.css" rel="stylesheet">
+<title>F1 AVQ - Bets</title>
+
+{% endblock %}
+
+{% block content %}
+<div class="back" id="particles-js"></div>
+<div class="secondparent">
+    <div class="bet">
+        <div class="info">
+            {% if current_user.is_authenticated %}
+            <h1> Hi {{ current_user.username.capitalize() }}! </h1>
+            <h3> Your current points are:  {{ current_user.points }} </h3>
+            {% endif %}
+        </div>
+        <div class="logout">
+            <a href="/logout"><i class="fa-solid fa-right-from-bracket"></i></a>
+        </div>
+    </div>
+    <div class="div2">
+        <div class="Title">
+            <p class="GPName" id="GPName"></p>
+            <div class="TimeCont">
+                <p id="TimeText">Remaining Time: </p>
+                <p id="Time"></p>
+            </div>
+        </div>
+        <div class="MainCont">
+            <div class="SelCont">
+                <div class="selectors">
+                    <p>Make your bet: </p>
+                    {% for x in range(10) %}
+                    <div class="selector-container">
+                        <div class="selector">
+                            <p class="num">{{ x + 1 }}</p>
+                            <select id="{{x}}" onchange="UpdateIMG(this.id)">
+                                <option value="-" >---</option>
+                                {% for item in DList %}
+                                <option id="{{x|string + item['Abv']}}" value="{{item['Abv']}}">{{item['Name']}}</option>
+                                {% endfor %}
+                            </select>
+                            <img id="{{ 'img' + x|string }}" src="">
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <button onclick="Submit()">Sumbit</button>
+                </div>
+            </div>
+            <div class="Table">
+                <p id="pos"></p>
+                <div class="TableContainer" id="UserTable"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    CurrentUser = "{{ current_user.username }}";
+    Dlist = ({{ DList | tojson}});
+    UserList = ({{ UserList | tojson}});
+    Schedule = ({{ Schedule | tojson }});
+    EndedGP = ({{ EndedGP | tojson }});
+
+    const SCRIPT_ROOT = {{ request.script_root|tojson }};
+
+    <!-- ^ ========= APUESTA ACTUAL ========= -->
+    async function getActualBet(GPNum) {
+        try {
+            const response = await fetch(`${SCRIPT_ROOT}/getbet/${GPNum}/${CurrentUser}`, {
+                method: 'GET',
+                credentials: 'same-origin'
+            });
+            const dt = await response.json();
+            return dt;
+        } catch (error) {
+            console.error(error);
+        }
+    }
+</script>
+<script src="/static//js/particles.js"></script>
+<script src="/static//js/defParticles.js"></script>
+<script src="/static//js/moment.js"></script>
+<script src="/static//js/moment-timezone.js"></script>
+<script src="/static//js/tabulator.min.js"></script>
+<script src="/static//js/bet.js"></script>
+
+{% endblock %}

@@ -1,0 +1,97 @@
+*{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: 'Space Grotesk', sans-serif;
+    color: #f5f5dc;
+}
+
+.back{
+    position: fixed;
+    z-index: -10;
+    background-color: #1B1B1B;
+    height: 100vh;
+    width: 100vw;
+}
+
+.content{
+    height: 100svh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.textcont{
+    width: 80svw;
+    text-align: center;
+}
+
+.textline{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: baseline
+}
+p{
+    font-size: 1.5rem;
+    margin-top: 20px;
+}
+a{
+    font-size: 1.5rem;
+    margin-left: 5px;
+    color: aqua;
+}
+
+.title{
+    font-size: 3rem;
+}
+
+.return{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.social{
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+.social a{
+    height: 4rem;
+    width: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+.social i{
+    font-size: 3rem;
+}
+
+button i{
+    color: #333;
+}
+
+button{
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.5rem;
+    background-color: beige;
+    color: #333;
+    transition: .5s;
+    border: none;
+    border-radius: 15px;
+    padding: 0.5rem 1rem;
+    margin: 2rem;
+    display: flex;
+
+}
+
+button:hover{
+    scale: 120%;
+    background-color: #333;
+    color: beige;
+    transition: .5s;
+}

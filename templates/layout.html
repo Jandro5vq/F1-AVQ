@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/static//img/Logo.png" type="image/x-icon">
+    <!-- ESTILOS -->
+    <link rel="stylesheet" href="/static//css/layout.css">
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/animations/scale-extreme.css"/>
+    <!-- FUNETES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
+    {% block head %}
+    {% endblock %}
+
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <a id="home" href="/"><i class="fa-solid fa-house" onclick=""></i></a>
+            <a id="race" href="/race"><i class="fa-solid fa-flag-checkered"></i></a>
+            <a id="bet" href="/bet"><i class="fa-solid fa-pen"></i></a>
+            <div class="foot">
+                <a id="about" href="/about"><i class="fa-solid fa-question"></i></a>
+                <a id="donate" href="https://www.paypal.com/donate/?hosted_button_id=BLJCE8SUVXMUU"><i class="fa-solid fa-hand-holding-dollar"></i></a>
+            </div>
+        </nav>
+        <div class="content">
+            <main class="maincont">
+                {% block content %}
+                {% endblock %}
+            </main>
+            <footer class="footer">
+                <a href="/about"><i class="fa-solid fa-question"></i></a>
+                <a href="https://www.paypal.com/donate/?hosted_button_id=BLJCE8SUVXMUU"><i class="fa-solid fa-hand-holding-dollar"></i></a>
+            </footer>
+        </div>
+    </div>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <script src="/static//js/layout.js"></script>
+    <script src="https://kit.fontawesome.com/5ae205cf28.js" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,279 @@
+/* ^ ========== PARTICLES BACKGROUND ========== */
+.partback{
+    position: fixed;
+    z-index: -10;
+    background-color: #1B1B1B;
+    height: 100%;
+    width: 100%;
+}
+/* ^ ========== RACE MAIN ========== */
+.race {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #1B1B1B; */
+    flex-direction: column;
+}
+/* ^ ========== TITLE ========== */
+.Title {
+    grid-area: Title;
+    font-family: 'Space Grotesk', sans-serif;
+    color: #f5f5dc;
+    font-size: max(3.5rem) ;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+.Title .Circuit-img{
+    margin: 1.5rem;
+    aspect-ratio: auto;
+    max-height: 7rem;
+}
+
+.Title .Flag-img{
+    margin: 1.5rem;
+    aspect-ratio: auto;
+    max-height: 4rem;
+}
+
+.Title .svg-img{
+    margin: 1.5rem;
+    aspect-ratio: auto;
+    max-height: 7rem;
+    filter: invert(92%) sepia(21%) saturate(218%) hue-rotate(18deg) brightness(107%) contrast(92%);
+}
+.Title .svg-img:nth-child(3){
+    transform: scaleX(-1);
+}
+/* ^ ========== MAIN ========== */
+.datos{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap-reverse;
+}
+/* ^ ========== RESULTS TABLE + SELECTOR ========== */
+/* % ========== RESULTS TABLE ========== */
+.ResultT {  
+    display: grid;
+    gap: 10px 0px;
+    grid-template-areas:
+        "Result-Selector"
+        ".";
+    margin-top: 20px;
+    max-width: 90vw !important;
+}
+/* % ========== SELECTOR ========== */
+.Result-Selector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Space Grotesk', sans-serif;
+    color: beige;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+.Result-Selector p{
+    margin-right: 1.5rem;
+}
+
+.selector select {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+    display: inline-block;
+    width: auto;
+    cursor: pointer;
+    padding: 7px 14px;
+    outline: 0;
+    border: 0px solid #000000;
+    border-radius: 0px;
+    background: #333;
+    color: beige;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-align: center;
+}
+.selector select::-ms-expand {
+    display: none;
+}
+.selector select:hover,
+.selector select option:hover,
+.selector select:focus {
+    color: #333;
+    background: beige;
+}
+.selector select:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+/* ^ ========== PODIO + CHART ========== */
+.Podio-Chart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+/* % ========== CHART ========== */
+.chart{
+    /* min-height: 400px; */
+    height: auto;
+    width: 550px;
+    margin-top: 20px;
+}
+
+/* % ========== PODIO ========== */
+.podio{
+    display: flex;
+    clip: rect(0 0 0 0);
+}
+
+.p1, .p2, .p3{
+    position: relative;
+    height: 300px;
+    width: 120px;
+    margin: 2px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+/* ----- FRONT ----- */
+.front{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    border-radius: 30px 30px 0 0;
+}
+.p1 .front{
+    height: 55%;
+    background: rgb(27,27,27);
+    background: linear-gradient(0deg, rgba(27,27,27,1) 15%, rgba(51,51,51,1) 100%);
+}
+.p2 .front{
+    height: 45%;
+    background: rgb(27,27,27);
+    background: linear-gradient(0deg, rgba(27,27,27,1) 15%, rgba(51,51,51,1) 100%);
+}
+.p3 .front{
+    height: 35%;
+    background: rgb(27,27,27);
+    background: linear-gradient(0deg, rgba(27,27,27,1) 15%, rgba(51,51,51,1) 100%);
+}
+
+/* ----- IMG ----- */
+.podio img{
+    position: absolute;
+    aspect-ratio: auto;
+    width: 95%;
+    scale: 100%;
+    transition: .5s;
+}
+.p1 img{
+    bottom: 50%;
+}
+.p2 img{
+    bottom: 40%;
+}
+.p3 img{
+    bottom: 30%;
+}
+.p1:hover img, .p2:hover img, .p3:hover img{
+    scale: 110%;
+    transition: .5s;
+}
+
+/* ----- BACK ----- */
+.back{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    border-radius: 30px 30px 0 0;
+}
+.p1 .back{
+    height: 60%;
+    background-color: cyan;
+}
+.p2 .back{
+    height: 50%;
+    background-color: magenta;
+}
+.p3 .back{
+    height: 40%;
+    background-color: yellow;
+}
+
+/* ----- NUMBER ----- */
+.podio p{
+    position: absolute;
+    width: 100%;
+    font-size: 2.5rem;
+    color: beige;
+    text-align: center;
+    scale: 100%;
+    transition: .5s;
+    font-family: 'Space Grotesk', sans-serif;
+}
+.p1 p{
+    bottom: 30%;
+}
+.p2 p{
+    bottom: 20%;
+}
+.p3 p{
+    bottom: 10%;
+}
+.p1:hover p, .p2:hover p, .p3:hover p{
+    scale: 140%;
+    transition: .5s;
+}
+
+/* $ ========== MOBILE ONLY ========== */
+@media only screen and (max-width: 767px) {
+
+    body, html{
+        overflow: auto;
+    }
+    .Title{
+        flex-direction: row-reverse;
+        padding: 4px;
+    }
+    .Title p{
+        font-size: 2rem ;
+        margin-top: 0.2em;
+        margin-bottom: 0.2em;
+    }
+
+    .Title .Flag-img {
+        max-height: 2rem;
+    }
+
+    .Title .Circuit-img{
+        display: none;
+    }
+
+    .Title .svg-img {
+        max-height: 3rem;
+    }
+
+    .datos{
+        /* flex-direction: column-reverse; */
+        transform: translateY(-70px);
+        flex-wrap: wrap-reverse;
+    }
+    .chart{
+        display: none;
+    }
+    .Result-Table, #results-table{
+        max-width: 90vw;
+    }
+}
