@@ -196,10 +196,10 @@ async function TableUpdate(){
             // % ========== TITULO ==========
             document.getElementById('Title').innerText = "Driver Standings";
             var LeftIMG = document.getElementById('Left-img');
-            LeftIMG.src = "/static/img//SteeringWheel.svg";
+            LeftIMG.src = "/static/img/SteeringWheel.svg";
             LeftIMG.className = 'svg-img';
             var RightIMG = document.getElementById('Right-img');
-            RightIMG.src = "/static/img//SteeringWheel.svg";
+            RightIMG.src = "/static/img/SteeringWheel.svg";
             RightIMG.className = 'svg-img';
             // % ========== PODIO ==========
             for (let i = 0; i < 3; i++) {
